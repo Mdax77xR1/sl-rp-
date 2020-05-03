@@ -55,7 +55,7 @@ j = 1;
 ///////////////////////////////////////////////////////////////////////////////////////////
 
  client.on('message', message => {
-	    var prefix = "$";
+	    var prefix = "&";
               if(!message.channel.guild) return;
     if(message.content.startsWith(prefix + 'bc')) {
     if(!message.channel.guild) return message.channel.send('**This Command Only For Servers**').then(m => m.delete(5000));
