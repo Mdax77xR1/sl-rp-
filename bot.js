@@ -3,6 +3,7 @@ const fs = require("fs");
 const client = new Discord.Client();
 //////////////////////////////////////////////////////////////////////////////////////////
 client.on('ready', () => {
+.()
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('The Prince : MdAx77x')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -35,69 +36,51 @@ client.on('ready', () => {
  
 });
 
-client.on('ready', function(){    
-  var ms = 5000 ;    
-  var setGame = ["SL-RP RoleyPlay",`Servers : ${client.guilds.size} | Users : ${client.users.size}`];    
-  var i = -1;    
-  var j = 0;    
-  setInterval(function (){    
-      if( i == -1 ){    
-j = 1;    
-     }    
-      if( i == (setGame.length)-1 ){    
-          j = -1;    
-    }    
-     i = i+j;    
-      client.user.setGame(setGame[i],`http://twitch.tv/MdAx7zx`);    
-}, ms);    
-  
-});
-///////////////////////////////////////////////////////////////////////////////////////////
+const prefix = "&"
 
- client.on('message', message => {
-	    var prefix = "&";
-              if(!message.channel.guild) return;
-    if(message.content.startsWith(prefix + 'bc')) {
-    if(!message.channel.guild) return message.channel.send('**This Command Only For Servers**').then(m => m.delete(5000));
-  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**You Dont Have perms** `ADMINISTRATOR`' );
-    let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-    let copy = "SL-RP BOT";
-    let request = `Requested By ${message.author.username}`;
-    if (!args) return message.reply('**Write Some Things To Broadcast**');message.channel.send(`**Are You Sure \nThe Broadcast: ** \` ${args}\``).then(msg => {
-    msg.react('✅')
-    .then(() => msg.react('❌'))
-    .then(() =>msg.react('✅'))
-    
-    let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
-    let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
-    
-    let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
-    let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
- reaction1.on("collect", r => {
-    message.channel.send(`**☑ | Done ... The Broadcast Message Has Been Sent To __${message.guild.members.size}__ Members**`).then(m => m.delete(5000));
-    message.guild.members.forEach(m => {
-  
-  var bc = new
-       Discord.RichEmbed()
-       .setColor('RANDOM')
-       .setTitle('Broadcast')
-       .addField('Server', message.guild.name)
-       .addField('Sender', message.author.username)
-       .addField('Message', args)
-.setFooter('Made By <@335484868479811584>')
-       .setThumbnail(message.author.avatarURL)
-       .setFooter(copy, client.user.avatarURL);
-    m.send({ embed: bc })
-    msg.delete();
-    })
-    })
-    reaction2.on("collect", r => {
-    message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
-    msg.delete();
-    })
-    })
-    }
-    });
+///////////////////////////////////////////////////////////////////////////////////////////
+client.on("message", message => {
+ 
+            if (message.content.startsWith(prefix + "bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' ');
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {//حقوق دايموند كودز
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`);
+ message.delete();
+};    
+});
+/////////////////////////////////////////////////
+
+
+
+const adminprefix = "&";
+const devs = ['340580530951290880','340580530951290880'];
+client.on('message', message => {
+ var argresult = message.content.split(` `).slice(1).join(' ');
+   if (!devs.includes(message.author.id)) return;
+   
+if (message.content.startsWith(adminprefix + 'setg')) {
+ client.user.setGame(argresult);
+   message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
+} else
+ if (message.content.startsWith(adminprefix + 'xdmaisamsd8129')) {
+client.user.setUsername(argresult).then
+   message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
+return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
+} else
+ if (message.content.startsWith(adminprefix + 'setavatar')) {
+client.user.setAvatar(argresult);
+ message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+     } else    
+if (message.content.startsWith(adminprefix + 'sets')) {
+ client.user.setGame(argresult, "https://www.twitch.tv/Mdax77xR1");//حقوق دايموند كودز
+   message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)//حقوق دايموند كودز
+}
+});
+
 
 
 
