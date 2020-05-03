@@ -73,6 +73,21 @@ if (message.content.startsWith('السلام عليكم ورحمه ')){
   message.channel.sendEmbed(ra32d);
     }
 });
+////////////////////////////////////////////////
+client.on('message', message => {
+    if(!message.channel.guild) return;
+    if(message.content.startsWith('&ping')) { // حقوق مداكس
+        if (message.author.bot) return;
+        if(!message.channel.guild) return;
+        var Bping =`${Math.round(client.ping)}` // Mdax77x CopyRight | Toxic Codes
+                const E1ping = new Discord.RichEmbed()
+        .setTitle('ــــــــــــــــــــــــــــــ')
+        .addField(`**BOT Ping Is** :__${Bping}📶__`,"ــــــــــــــــــــــــــــــ")
+        .setFooter(`Requested by | ${message.author.tag}`) // حقوق مداكس
+        .setColor('RANDOM')
+        message.channel.send(E1ping);
+    }
+});
 //////////////////////////////////////////////////////////////////////
 client.on("message", message => {
  
