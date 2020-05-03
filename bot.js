@@ -38,6 +38,42 @@ client.on('ready', () => {
 const prefix = "&"
 
 ///////////////////////////////////////////////////////////////////////////////////////////
+client.on('message', message => {
+if (message.content.startsWith('السلام عليكم')){
+     let ra3d = new Discord.RichEmbed()
+  .setColor("#e9ab26")
+  .setDescription("**وعليكم السلام ورحمة الله وبركاتة**")
+     
+     
+  message.channel.sendEmbed(ra3d);
+    }
+});
+
+
+client.on('message', message => {
+if (message.content.startsWith('السلام عليكم ورحمة الله')){
+     let ra31d = new Discord.RichEmbed()
+  .setColor("#e9ab26")
+  .setDescription("**وعليكم السلام ورحمة الله وبركاتة**")
+     
+     
+  message.channel.sendEmbed(ra31d);
+    }
+});
+
+
+
+client.on('message', message => {
+if (message.content.startsWith('السلام عليكم ورحمه ')){
+     let ra32d = new Discord.RichEmbed()
+  .setColor("#e9ab26")
+  .setDescription("**وعليكم السلام ورحمة الله وبركاتة**")
+     
+     
+  message.channel.sendEmbed(ra32d);
+    }
+});
+//////////////////////////////////////////////////////////////////////
 client.on("message", message => {
  
             if (message.content.startsWith(prefix + "bc")) {
