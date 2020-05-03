@@ -41,7 +41,7 @@ const prefix = "&"
 client.on('message', message => {
 if (message.content.startsWith('السلام عليكم')){
      let ra3d = new Discord.RichEmbed()
-  .setColor("#e9ab26")
+  .setColor("RANDOM")
   .setDescription("**وعليكم السلام ورحمة الله وبركاتة**")
      
      
@@ -53,7 +53,7 @@ if (message.content.startsWith('السلام عليكم')){
 client.on('message', message => {
 if (message.content.startsWith('السلام عليكم ورحمة الله')){
      let ra31d = new Discord.RichEmbed()
-  .setColor("#e9ab26")
+  .setColor("RANDOM")
   .setDescription("**وعليكم السلام ورحمة الله وبركاتة**")
      
      
@@ -66,7 +66,7 @@ if (message.content.startsWith('السلام عليكم ورحمة الله')){
 client.on('message', message => {
 if (message.content.startsWith('السلام عليكم ورحمه ')){
      let ra32d = new Discord.RichEmbed()
-  .setColor("#e9ab26")
+  .setColor('RANDOM')
   .setDescription("**وعليكم السلام ورحمة الله وبركاتة**")
      
      
