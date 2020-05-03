@@ -38,61 +38,7 @@ client.on('ready', () => {
 const prefix = "&"
 //////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
-client.on('message', message => {
-if (message.content.startsWith('السلام عليكم')){
-     let ra3d = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setDescription("**وعليكم السلام ورحمة الله وبركاتة**")
-     
-     
-  message.channel.sendEmbed(ra3d);
-    }
-});
 
-
-client.on('message', message => {
-if (message.content.startsWith('السلام عليكم ورحمة الله')){
-     let ra31d = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setDescription("**وعليكم السلام ورحمة الله وبركاتة**")
-     
-     
-  message.channel.sendEmbed(ra31d);
-    }
-});
-
-
-
-client.on('message', message => {
-if (message.content.startsWith('السلام عليكم ورحمه ')){
-     let ra32d = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .setDescription("**وعليكم السلام ورحمة الله وبركاتة**")
-     
-     
-  message.channel.sendEmbed(ra32d);
-    }
-});
-///////////////////////////////////////////////
-client.on('message', async msg =>{
-    if (msg.author.bot) return undefined;
-    if (!msg.content.startsWith(prefix)) return undefined;
-   
-    let args = msg.content.split(' ');
- 
-    let command = msg.content.toLowerCase().split(" ")[0];
-    command = command.slice(prefix.length)
- 
-    if(command === `ping`) {
-    let embed = new Discord.RichEmbed()
-    .setColor(3447003)
-    .setTitle("Pong!!")
-    .setDescription(`${client.ping} ms,`)
-    .setFooter(`Requested by | ${msg.author.tag}`);
-    msg.delete().catch(O_o=>{})
-    msg.channel.send(embed);
-    }
-});
 //////////////////////////////////////////////////////////////////////
 client.on("message", message => {
  
